@@ -1,0 +1,28 @@
+server:
+   port: 8080
+# 自定义的属性   
+person:
+  name: kd
+  sex : man 
+  age : 18
+spring:
+   mvc:
+     view:
+       prefix: /WEB-INF/view/ 
+       suffix: .jsp
+   datasource:
+    driverClassName: com.mysql.jdbc.Driver
+    url : jdbc:mysql://localhost:3306/springboot_test?useUnicode=true&characterEncoding=utf-8 
+    username : root
+    password : 1234
+# Mybatis配置
+mybatis:
+  typeAliasesPackage: cn.itsource.model   
+  mapperLocations: classpath:cn/itsource/dao/mapper/*.xml 
+---
+#上传配置
+spring:
+      servlet:
+        multipart:
+          max-file-size: 100MB # 上传默认大小是1m
+   

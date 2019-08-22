@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+<!-- 生成 命令    mybatis-generator:generate  -->
+<generatorConfiguration>
+    <!-- <properties resource="application.yml"/> -->
+
+     <context id="Mysql" targetRuntime="MyBatis3Simple" defaultModelType="flat">
+        <property name="beginningDelimiter" value="`"/>
+        <property name="endingDelimiter" value="`"/>
+
+        
+
+        <jdbcConnection driverClass="com.mysql.jdbc.Driver"
+                        connectionURL="jdbc:mysql://localhost:3308/springboot-demo"
+                        userId="root"
+                        password="root">
+        </jdbcConnection>
+
+        <javaModelGenerator targetPackage="cn.itsource.model" targetProject="src/main/java"/>
+
+        <sqlMapGenerator targetPackage="cn.itsource.dao.mapper" targetProject="src/main/java"/>
+
+        <javaClientGenerator targetPackage="cn.itsource.dao" targetProject="src/main/java"
+                             type="XMLMAPPER"/>
+       <!--自动生成的表 -->
+        <table tableName="t_dept" domainObjectName="Dept"  mapperName="DeptDao" >
+            <!--mysql 配置-->
+            <generatedKey column="id" sqlStatement="Mysql" identity="true"/>
+        </table>
+        <table tableName="t_news" domainObjectName="News"  mapperName="NewsDao" >
+            <!--mysql 配置-->
+            <generatedKey column="id" sqlStatement="Mysql" identity="true"/>
+        </table>
+        
+        
+        
+    </context>
+</generatorConfiguration>
